@@ -2,11 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
+const dotenv = require("dotenv");
 const RiskData = require("./Models/ProductModels");
 
 app.use(cors());
 app.use(express.json()); //middleware
-
+dotenv.config();
 //Routes
 app.get("/", (req, res) => {
   res.send("HELLO NOW we are ready to go");
@@ -45,7 +46,7 @@ app.get("/Getriskdata/:id", async (req, res) => {
 const startServer = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://admin_jose:osas123456@roboadvisorapi.sgaprzy.mongodb.net/Data-API?retryWrites=true&w=majority"
+     process.env.MONGO_URL
     );
     app.listen(5000, () => {
       console.log("let get this started");
