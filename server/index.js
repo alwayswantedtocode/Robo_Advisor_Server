@@ -46,12 +46,12 @@ app.get("/Getriskdata/:id", async (req, res) => {
 const startServer = async () => {
   try {
     await mongoose.connect(
-     process.env.MONGO_URL
+     process.env.MONGO_URI
     );
     app.listen(5000, () => {
       console.log("let get this started");
     });
-    console.log("Connected to mongodb!");
+    console.log("Connected to mongodb!!");
   } catch (error) {
     console.log(error);
   }
