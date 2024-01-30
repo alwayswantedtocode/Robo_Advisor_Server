@@ -7,7 +7,7 @@ const RiskData = require("./Models/ProductModels");
 
 app.use(cors());
 app.use(express.json()); //middleware
-dotenv.config();
+dotenv.config()
 //Routes
 app.get("/", (req, res) => {
   res.send("HELLO NOW we are ready to go");
@@ -46,12 +46,12 @@ app.get("/Getriskdata/:id", async (req, res) => {
 const startServer = async () => {
   try {
     await mongoose.connect(
-     process.env.MONGO_URI
+     'mongodb+srv://admin_jose:osas123456@roboadvisorapi.sgaprzy.mongodb.net/Data-API?retryWrites=true&w=majority'
     );
     app.listen(5000, () => {
       console.log("let get this started");
     });
-    console.log("Connected to mongodb!!");
+    console.log("Connected to mongodb!");
   } catch (error) {
     console.log(error);
   }
